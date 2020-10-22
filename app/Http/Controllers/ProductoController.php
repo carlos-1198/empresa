@@ -29,7 +29,7 @@ class ProductoController extends Controller
             ->join('marcas as m', function ($join) {
                 $join->on('m.id', '=', 'p.id_marca');
             })
-            ->get();
+            ->paginate(20);
 
 
 
