@@ -23,6 +23,7 @@ use Illuminate\Support\Facades\Auth;
 
 
 Route::get('/', [App\Http\Controllers\ProductoController::class, 'list'])->name('welcome');
+Route::get('/listado', [App\Http\Controllers\ProductoController::class, 'listAll'])->name('listado');
 //Route::resource('marcas','MarcasController');
 Route::resource('marca', MarcaController::class);
 Route::resource('categoria', CategoriaController::class);

@@ -33,8 +33,8 @@
                   
                 </div>
                 <div class="text-center">
-                  <!-- <a class="btn btn-success" href="">Ver todos los productos</a> -->
-                  {{ $listados->links('pagination::bootstrap-4') }}
+                  <a class="btn btn-success" href="{{ route('listado') }}">Ver todos los productos</a>
+                  
                 </div>              
               </div>
             </div>
