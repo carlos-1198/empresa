@@ -53,7 +53,7 @@
                             <form action="{{url('/producto/'.$producto->id)}}" method="POST">
                                 {{csrf_field()}}
                                 {{method_field('DELETE')}}
-                                <a id="delete-icon"onclick="return confirm('Borrar?');"><i class="fas fa-trash-alt"></i></a>
+                                <button id="delete-icon"onclick="return confirm('Borrar?');"><i class="fas fa-trash-alt"></i></button>
                             </form>
                         </td>
                     </tr>

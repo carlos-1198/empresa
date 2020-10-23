@@ -18,7 +18,6 @@
             <div class="col-12">
                 <form action="{{ url('/categoria') }}" method="post" enctype="multipart/form-data">
                     {{csrf_field()}}
-                    @method('PATCH')
                     @include('admin.categoria.form',['modo'=>'crear'])
                 </form>
                 <a href="{{url('categoria')}}">Regresar</a>

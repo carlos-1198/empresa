@@ -66,6 +66,8 @@
 	font-size: 25px;
 	color: #28a745;
 	padding-left: 5px;
+	border: none;
+	background-color: white;
 }
 
 #edit-icon{
