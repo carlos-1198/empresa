@@ -15,78 +15,23 @@
                 consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
                 cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
                 proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                <a class="btn btn-success" href="{{ route('producto.index') }}">Admin</a>
               </div>
               <div id="productos" class="pt-2 pb-4">
                 <h2 class="pb-4">Recientemente Agregados</h2>
                 <div class="row row-cols-1 row-cols-s-1 row-cols-md-2 row-cols-lg-4">
+                @foreach($listados as $listado)
                   <div class="col mb-4">
                     <div class="card">
-                      <a data-toggle="modal" data-target="#modalProducto"><img src="{{asset('storage/iphone.jpg')}}"  class="card-img-top" alt="Iphone X"></a>
+                      <a data-toggle="modal" data-target="#modalProducto{{$listado->id}}"><img src="{{asset('storage').'/'.$listado->foto}}"  class="card-img-top" alt="Imagen producto"></a>
                       <div class="card-body">
-                        <p class="card-text">Producto 1</p>
+                        <p class="card-text ">{{$listado->nombre}}</p>
                       </div>
                     </div>
                   </div>
-                  <div class="col mb-4">
-                    <div class="card">
-                       <img src="{{asset('storage/iphone.jpg')}}" class="card-img-top" alt="Iphone X">
-                      <div class="card-body">
-                        <p class="card-text">Producto 2</p>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col mb-4">
-                    <div class="card">
-                       <img src="{{asset('storage/iphone.jpg')}}" class="card-img-top" alt="Iphone X">
-                      <div class="card-body">
-                        <p class="card-text">Producto 3</p>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col mb-4">
-                    <div class="card">
-                       <img src="{{asset('storage/iphone.jpg')}}" class="card-img-top" alt="Iphone X">
-                      <div class="card-body">
-                        <p class="card-text">Producto 4</p>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col mb-4">
-                    <div class="card">
-                       <img src="{{asset('storage/iphone.jpg')}}" class="card-img-top" alt="Iphone X">
-                      <div class="card-body">
-                        <p class="card-text">Producto 5</p>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col mb-4">
-                    <div class="card">
-                       <img src="{{asset('storage/iphone.jpg')}}" class="card-img-top" alt="Iphone X">
-                      <div class="card-body">
-                        <p class="card-text">Producto 6</p>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col mb-4">
-                    <div class="card">
-                       <img src="{{asset('storage/iphone.jpg')}}" class="card-img-top" alt="Iphone X">
-                      <div class="card-body">
-                        <p class="card-text">Producto 7</p>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col mb-4">
-                    <div class="card">
-                       <img src="{{asset('storage/iphone.jpg')}}" class="card-img-top" alt="Iphone X">
-                      <div class="card-body">
-                        <p class="card-text">Producto 8</p>
-                      </div>
-                    </div>
-                  </div>
+                @endforeach
                 </div>
                 <div class="text-center">
-                  <a class="btn btn-success" href="">Ver todos los productos</a>
+                  <a class="btn btn-success" href="{{ route('listado') }}">Ver todos los productos</a>       
                 </div>              
               </div>
             </div>

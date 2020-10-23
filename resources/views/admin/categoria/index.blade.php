@@ -11,16 +11,16 @@
                 <a class="nav-link" href="{{ route('producto.index') }}">Productos</a>
             </div>
         </div>
-        <div class="col-12 offset-md-1 col-md-6">
+        <div class="col-12  col-md-8">
             <div class="row">
                   <h2 class="col-10 mt-2">Listado de Categorias</h2>
                   <a href="{{url('categoria/create')}}"><i id="plus-icon" class="fas fa-plus-circle"></i></a>
             </div>
-            <div class="col-12">     
+            <div class="col-12 table-responsive">     
                 <table class="table">
-                    <thead>
+                    <thead class="text-center">
                         <tr>
-                            <th scope="col">#</th>
+                            <th scope="col">ID</th>
                             <th scope="col">Nombre</th>
                             <th scope="col">Descripcion</th>
                             <th scope="col">Estado</th>
@@ -38,13 +38,14 @@
                                 <form action="{{url('/categoria/'.$categoria->id)}}" method="POST">
                                     {{csrf_field()}}
                                     {{method_field('DELETE')}}
-                                    <a id="delete-icon"onclick="return confirm('Borrar?');"><i class="fas fa-trash-alt"></i></a>
+                                    <button id="delete-icon" type="submit" onclick="return confirm('Borrar?');"><i class="fas fa-trash-alt"></i></button>
                                 </form>
                             </td>
                         </tr>
                         @endforeach
                     </tbody>
                 </table>
+                {{ $categorias->links('pagination::bootstrap-4') }}
             </div>
         </div>
     </div>

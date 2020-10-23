@@ -17,14 +17,17 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-Route::get('/', function () {
+/* Route::get('/', function () {
     return view('welcome');
-});
+}); */
 
+
+Route::get('/', [App\Http\Controllers\ProductoController::class, 'list'])->name('welcome');
+Route::get('/listado', [App\Http\Controllers\ProductoController::class, 'listAll'])->name('listado');
 //Route::resource('marcas','MarcasController');
-Route::resource('marca', MarcaController::class);
-Route::resource('categoria', CategoriaController::class);
-Route::resource('producto', ProductoController::class);
+Route::resource('marca', MarcaController::class)->middleware('auth');
+Route::resource('categoria', CategoriaController::class)->middleware('auth');
+Route::resource('producto', ProductoController::class)->middleware('auth');
 
 Auth::routes();
 
