@@ -46,8 +46,8 @@ class ProductoController extends Controller
         //
 
         $categorias = DB::table('categorias')->select('id', 'nombre')
-        ->where('estado', '=', 0)
-        ->get();
+            ->where('estado', '=', 0)
+            ->get();
         $marcas = DB::table('marcas')->select('id', 'nombre')->get();
 
         return view('admin/producto.create', compact('categorias', 'marcas'));
@@ -145,5 +145,22 @@ class ProductoController extends Controller
 
 
         return redirect('producto');
+    }
+
+    public function list()
+    {
+        $listados = producto::select('p.id', 'p.nombre', 'p.descripcioncorta', 'p.detalle', 'p.valor', 'p.palabrasclave', 'p.foto', 'c.nombre as categoria', 'm.nombre as marca')
+            ->from('productos as p')
+            ->join('categorias as c', function ($join) {
+                $join->on('p.id_categoria', '=', 'c.id')
+                    ->where('p.estado', '=', '0')
+                    ->where('c.estado', '=', '0');
+            })
+            ->join('marcas as m', function ($join) {
+                $join->on('p.id_marca', '=', 'm.id');
+            })
+            ->paginate(8);
+
+        return view('welcome', compact('listados'));
     }
 }

@@ -38,13 +38,14 @@
                                 <form action="{{url('/categoria/'.$categoria->id)}}" method="POST">
                                     {{csrf_field()}}
                                     {{method_field('DELETE')}}
-                                    <a id="delete-icon"onclick="return confirm('Borrar?');"><i class="fas fa-trash-alt"></i></a>
+                                    <button id="delete-icon" type="submit" onclick="return confirm('Borrar?');"><i class="fas fa-trash-alt"></i></button>
                                 </form>
                             </td>
                         </tr>
                         @endforeach
                     </tbody>
                 </table>
+                {{ $categorias->links('pagination::bootstrap-4') }}
             </div>
         </div>
     </div>

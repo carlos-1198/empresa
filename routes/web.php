@@ -17,10 +17,12 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-Route::get('/', function () {
+/* Route::get('/', function () {
     return view('welcome');
-});
+}); */
 
+
+Route::get('/', [App\Http\Controllers\ProductoController::class, 'list'])->name('welcome');
 //Route::resource('marcas','MarcasController');
 Route::resource('marca', MarcaController::class);
 Route::resource('categoria', CategoriaController::class);
