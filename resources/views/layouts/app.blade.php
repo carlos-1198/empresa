@@ -147,7 +147,7 @@
             <div class="col-6">
               <p>{{$listado->categoria}}</p>
               <p>{{$listado->descripcioncorta}}</p>
-              <a class="offset-8" href="">más</a>
+              <div><p>{{$listado->valor}}</p></div>
             </div>
           </div>
           <div class="modal-footer">
@@ -197,41 +197,6 @@
     </div>
     <!--/MODALBTNSIGUENOS-->
 
-    <!--LOGINMODAL-->
-    <div id="modal-btn-log" class="modal" tabindex="-1">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title">Log</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-             <form>
-              <div class="form-group">
-                <label for="usuario-log">Usuario</label>
-                <input type="text" class="form-control" id="usuario-log">
-              </div>
-              <div class="form-group">
-                <label for="password-log">Password</label>
-                <input type="password" class="form-control" id="password-log" aria-describedby="consejo-contra">
-                <small id="consejo-contra" class="form-text text-muted">Asegurate de verificar las mayusculas.</small>
-              </div>
-              <div class="form-group form-check">
-                <input type="checkbox" class="form-check-input" id="recuerdame-log">
-                <label class="form-check-label" for="recuerdame-log">Recuerdame</label>
-              </div>
-              <div class="form-group text-center">
-                <button type="submit" class="btn btn-primary">Registrarse</button>
-                <button type="submit" class="btn btn-success">Ingresar</button>
-              </div>
-            </form>         
-          </div>
-        </div>
-      </div>
-    </div>   
-    <!--/LOGINMODAL-->
 </body>
 
 </html>

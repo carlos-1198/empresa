@@ -24,15 +24,17 @@ use Illuminate\Support\Facades\Auth;
 
 Route::get('/', [App\Http\Controllers\ProductoController::class, 'list'])->name('welcome');
 Route::get('/listado', [App\Http\Controllers\ProductoController::class, 'listAll'])->name('listado');
-//Route::resource('marcas','MarcasController');
+Route::get('/listado/filter/{id}', [App\Http\Controllers\ProductoController::class, 'filter'])->name('listado.filter');
 Route::resource('marca', MarcaController::class)->middleware('auth');
 Route::resource('categoria', CategoriaController::class)->middleware('auth');
 Route::resource('producto', ProductoController::class)->middleware('auth');
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\ProductoController::class, 'list'])->name('home');
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\ProductoController::class, 'list'])->name('home');
+
+

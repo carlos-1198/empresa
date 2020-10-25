@@ -186,4 +186,26 @@ class ProductoController extends Controller
 
         return view('listado', compact('listados', 'categorias'));
     }
+
+    public function filter($id)
+    {
+        $listados = producto::select('p.id', 'p.nombre', 'p.descripcioncorta', 'p.detalle', 'p.valor', 'p.palabrasclave', 'p.foto', 'c.nombre as categoria', 'm.nombre as marca')
+            ->from('productos as p')
+            ->join('categorias as c', function ($join) {
+                $join->on('p.id_categoria', '=', 'c.id')
+                    ->where('p.estado', '=', '0')
+                    ->where('c.estado', '=', '0')
+                    ->where('c.id','=', $id);
+            })
+            ->join('marcas as m', function ($join) {
+                $join->on('p.id_marca', '=', 'm.id');
+            })
+            ->paginate(8);
+
+        $categorias = DB::table('categorias')->select('id', 'nombre')
+            ->where('estado', '=', 0)
+            ->get();
+
+        return view('listado', compact('listados', 'categorias'));
+    }
 }

@@ -9,7 +9,7 @@
                 <h5>Categorias</h5>
                 @isset($categorias)
                 @foreach($categorias as $categoria)
-                <a class="nav-link" href="{{url('/listado/'.$categoria->id.'/filter')}}">{{$categoria->nombre}}</a>
+                <a class="nav-link" href="{{url('/listado/filter/'.$categoria->id)}}">{{$categoria->nombre}}</a>
                 @endforeach
                 @endisset
             </div>
@@ -25,18 +25,11 @@
                 </div>
                 <div class="d-sm-block d-md-none">
                     <ul class="nav justify-content-center">
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Categoria 1</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Categoria 2</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Categoria 3</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Categoria 4</a>
-                        </li>
+                    @isset($categorias)
+                    @foreach($categorias as $categoria)
+                    <a class="nav-link" href="{{url('/listado/filter/'.$categoria->id)}}">{{$categoria->nombre}}</a>
+                    @endforeach
+                    @endisset
                     </ul>
                 </div>
             </div>
