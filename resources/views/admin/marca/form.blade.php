@@ -9,4 +9,8 @@
         <textarea class="form-control" id="descripcion" name="descripcion" rows="3" required >{{isset($marca->descripcion)?$marca->descripcion:''}}</textarea>
     </div>
    
-    <button type="submit" class="btn btn-primary">{{ $modo=='crear' ? 'Agregar':'Modificar' }}</button>
+    <div class="row">
+        <button type="submit" class="btn btn-success">{{ $modo=='crear' ? 'Agregar':'Modificar' }}</button>
+        <a id="a-regresar" href="{{url('marca')}}">Regresar</a>
+    </div>
+    

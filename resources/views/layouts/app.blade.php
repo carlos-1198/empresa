@@ -38,7 +38,7 @@
                         <a class="btn btn-success" href="{{ route('login') }}">{{ __('Login') }}</a>
                     </li>
                     @if (Route::has('register'))
-                    <li id="register-button" class="nav-item">
+                    <li id="register-button" class="nav-item d-none">
                         <a class="btn btn-outline-secondary" href="{{ route('register') }}">{{ __('Register') }}</a>
                     </li>
                     @endif

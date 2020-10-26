@@ -7,8 +7,8 @@
             <h4>Menu</h4>
             <div class="nav flex-column" id="aside-menu" role="tablist" aria-orientation="vertical">
                 <a class="nav-link"  href="{{ route('marca.index') }}">Marcas</a>
-                <a class="nav-link"  href="{{ route('categoria.index') }}">Categorias</a>
-                <a class="nav-link active" href="{{ route('producto.index') }}">Productos</a>
+                <a class="nav-link active"  href="{{ route('categoria.index') }}">Categorias</a>
+                <a class="nav-link" href="{{ route('producto.index') }}">Productos</a>
             </div>
         </div>
         <div id="fondo-form" class="offset-md-1 col-12 col-md-6">
@@ -20,7 +20,6 @@
                     {{csrf_field()}}
                     @include('admin.categoria.form',['modo'=>'crear'])
                 </form>
-                <a href="{{url('categoria')}}">Regresar</a>
             </div>
         </div>
     </div>

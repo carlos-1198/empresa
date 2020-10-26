@@ -91,8 +91,18 @@
 	padding-left:6px;
 }
 
+#a-regresar{
+	color: #307b41;
+	padding-left: 5px;
+}
+
 #dropdown-logout{
 	background-color: #1c3643;
+	color:white;
+}
+
+#dropdown-logout:hover{
+	background-color: #3b708a;
 	color:white;
 }
 
@@ -103,4 +113,8 @@
 #dropdown-empresa:hover{
 	background-color: #28a745;
 	color: white;
+}
+
+#navbarDropdown{
+	color:white;
 }

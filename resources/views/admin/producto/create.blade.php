@@ -20,7 +20,6 @@
                     {{csrf_field()}}
                     @include('admin.producto.form',['modo'=>'crear'])
                 </form>
-                <a href="{{url('producto')}}">Regresar</a>
             </div>
         </div>
     </div>

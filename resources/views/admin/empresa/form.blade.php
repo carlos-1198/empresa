@@ -1,7 +1,7 @@
 <div class="form-group row">
     <label for="email-gestion" class="col-sm-2 col-form-label">Email</label>
     <div class="col-sm-10">
-        <input type="text"  class="form-control" id="email-gestion" name="email-gestion" aria-describedby="email" required value="{{isset($email->emailcontacto)?$email->emailcontacto:''}}">
+        <input type="text"  class="form-control" id="email-gestion" name="email-gestion" aria-describedby="email" required value="{{isset($empresa->emailcontacto)?$empresa->emailcontacto:''}}">
     </div>
 </div>
 
@@ -56,5 +56,7 @@
     </div>
 </div>
 
-
-<button type="submit" class="btn btn-primary">{{ $modo=='crear' ? 'Agregar':'Modificar' }}</button>
+<div class= "row">
+    <button type="submit" class="btn btn-success">{{ $modo=='crear' ? 'Agregar':'Modificar' }}</button>
+    <a id="a-regresar" href="{{url('/')}}">Regresar</a>
+</div>

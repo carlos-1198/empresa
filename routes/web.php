@@ -35,8 +35,5 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\ProductoController::class, 'list'])->name('home');
 
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\ProductoController::class, 'list'])->name('home');
 
 
