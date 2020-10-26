@@ -19,8 +19,7 @@ class ProductoController extends Controller
      */
     public function index()
     {
-        //
-        //$datos['productos']=producto::paginate(20);
+
         $productos = producto::select('p.id', 'p.referencia', 'p.nombre', 'p.descripcioncorta', 'p.detalle', 'p.valor', 'p.palabrasclave', 'p.estado', 'p.foto', 'c.nombre as categoria', 'm.nombre as marca')
             ->from('productos as p')
             ->join('categorias as c', function ($join) {
@@ -30,8 +29,6 @@ class ProductoController extends Controller
                 $join->on('m.id', '=', 'p.id_marca');
             })
             ->paginate(20);
-
-
 
         return view('admin/producto.index', compact('productos'));
     }
