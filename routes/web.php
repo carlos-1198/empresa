@@ -3,6 +3,7 @@
 use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\MarcaController;
 use App\Http\Controllers\ProductoController;
+use App\Http\Controllers\EmpresaController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -28,6 +29,7 @@ Route::get('/listado/filter/{id}', [App\Http\Controllers\ProductoController::cla
 Route::resource('marca', MarcaController::class)->middleware('auth');
 Route::resource('categoria', CategoriaController::class)->middleware('auth');
 Route::resource('producto', ProductoController::class)->middleware('auth');
+Route::resource('empresa', EmpresaController::class)->middleware('auth');
 
 Auth::routes();
 

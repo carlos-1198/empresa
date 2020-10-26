@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Pear') }}</title>
+    <title>@yield('pageTitle')Pear INC.</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -51,8 +51,11 @@
                             {{ Auth::user()->name }}
                         </a>
 
-                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                        <div id="contenedor-desplegable" class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">  
+                            <a id="dropdown-empresa" class="dropdown-item" href="{{url('empresa/1/edit')}}">
+                                {{ __('Pear') }}
+                            </a>
+                            <a id="dropdown-logout" class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                   document.getElementById('logout-form').submit();">
                                 {{ __('Logout') }}
                             </a>
@@ -96,8 +99,6 @@
             </div>
         </section>
         <!--/BANNER-->
-
-
         <main class="pt-4 pb-4">
             @yield('content')
         </main>

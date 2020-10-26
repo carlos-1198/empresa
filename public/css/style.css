@@ -90,3 +90,17 @@
 #register-button{
 	padding-left:6px;
 }
+
+#dropdown-logout{
+	background-color: #1c3643;
+	color:white;
+}
+
+#contenedor-desplegable{
+	padding:0px;
+}
+
+#dropdown-empresa:hover{
+	background-color: #28a745;
+	color: white;
+}
