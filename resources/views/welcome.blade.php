@@ -15,7 +15,6 @@
                 consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
                 cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
                 proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                <a class="btn btn-success" href="{{ route('producto.index') }}">Admin</a>
               </div>
               <div id="productos" class="pt-2 pb-4">
                 <h2 class="pb-4">Recientemente Agregados</h2>
@@ -23,18 +22,16 @@
                 @foreach($listados as $listado)
                   <div class="col mb-4">
                     <div class="card">
-                      <a data-toggle="modal" data-target="#modalProducto{{$listado->id}}"><img src="{{asset('storage').'/'.$listado->foto}}"  class="card-img-top" alt="Iphone X"></a>
+                      <a data-toggle="modal" data-target="#modalProducto{{$listado->id}}"><img src="{{asset('storage').'/'.$listado->foto}}"  class="card-img-top" alt="Imagen producto"></a>
                       <div class="card-body">
-                        <p class="card-text">{{$listado->nombre}}</p>
+                        <p class="card-text ">{{$listado->nombre}}</p>
                       </div>
                     </div>
                   </div>
-                  @endforeach
-                  
+                @endforeach
                 </div>
                 <div class="text-center">
-                  <a class="btn btn-success" href="{{ route('listado') }}">Ver todos los productos</a>
-                  
+                  <a class="btn btn-success" href="{{ route('listado') }}">Ver todos los productos</a>       
                 </div>              
               </div>
             </div>

@@ -6,9 +6,9 @@
         <div class="col-2 d-none d-md-block">
             <h4>Menu</h4>
             <div class="nav flex-column" id="aside-menu" role="tablist" aria-orientation="vertical">
-                <a class="nav-link"  href="{{ route('marca.index') }}">Marcas</a>
+                <a class="nav-link active"  href="{{ route('marca.index') }}">Marcas</a>
                 <a class="nav-link"  href="{{ route('categoria.index') }}">Categorias</a>
-                <a class="nav-link active" href="{{ route('producto.index') }}">Productos</a>
+                <a class="nav-link" href="{{ route('producto.index') }}">Productos</a>
             </div>
         </div>
         <div id="fondo-form" class="offset-md-1 col-12 col-md-6">
@@ -21,7 +21,6 @@
                     @method('PATCH')
                     @include('admin.marca.form',['modo'=>'editar'])
                 </form>
-                <a href="{{url('marca')}}">Regresar</a>
             </div>
         </div>
     </div>

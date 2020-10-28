@@ -3,6 +3,7 @@
 use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\MarcaController;
 use App\Http\Controllers\ProductoController;
+use App\Http\Controllers\EmpresaController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -24,15 +25,15 @@ use Illuminate\Support\Facades\Auth;
 
 Route::get('/', [App\Http\Controllers\ProductoController::class, 'list'])->name('welcome');
 Route::get('/listado', [App\Http\Controllers\ProductoController::class, 'listAll'])->name('listado');
-//Route::resource('marcas','MarcasController');
-Route::resource('marca', MarcaController::class);
-Route::resource('categoria', CategoriaController::class);
-Route::resource('producto', ProductoController::class);
+Route::get('/listado/filter/{id}', [App\Http\Controllers\ProductoController::class, 'filter'])->name('listado.filter');
+Route::resource('marca', MarcaController::class)->middleware('auth');
+Route::resource('categoria', CategoriaController::class)->middleware('auth');
+Route::resource('producto', ProductoController::class)->middleware('auth');
+Route::resource('empresa', EmpresaController::class)->middleware('auth');
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\ProductoController::class, 'list'])->name('home');
 
-Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+

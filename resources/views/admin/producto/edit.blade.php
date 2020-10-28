@@ -20,8 +20,7 @@
                     {{csrf_field()}}
                     @method('PATCH')
                     @include('admin.producto.form',['modo'=>'editar'])
-                </form>
-                <a href="{{url('producto')}}">Regresar</a>
+                </form> 
             </div>
         </div>
     </div>

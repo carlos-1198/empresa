@@ -11,16 +11,24 @@
                 <a class="nav-link" href="{{ route('producto.index') }}">Productos</a>
             </div>
         </div>
-        <div class="col-12 offset-md-1 col-md-6">
+        <div class="col-12 d-block d-md-none">
+            <h4>Menu</h4>
+            <div class="nav flex-row" id="aside-menu" role="tablist" aria-orientation="vertical">
+                <a class="nav-link"  href="{{ route('marca.index') }}">Marcas</a>
+                <a class="nav-link active"  href="{{ route('categoria.index') }}">Categorias</a>
+                <a class="nav-link" href="{{ route('producto.index') }}">Productos</a>
+            </div>
+        </div>
+        <div class="col-12  col-md-8">
             <div class="row">
                   <h2 class="col-10 mt-2">Listado de Categorias</h2>
                   <a href="{{url('categoria/create')}}"><i id="plus-icon" class="fas fa-plus-circle"></i></a>
             </div>
-            <div class="col-12">     
+            <div class="col-12 table-responsive">     
                 <table class="table">
-                    <thead>
+                    <thead class="text-center">
                         <tr>
-                            <th scope="col">#</th>
+                            <th scope="col">ID</th>
                             <th scope="col">Nombre</th>
                             <th scope="col">Descripcion</th>
                             <th scope="col">Estado</th>

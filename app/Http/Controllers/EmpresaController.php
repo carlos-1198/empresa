@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\empresa;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use illuminate\Support\Facades;
 
 class EmpresaController extends Controller
 {
@@ -14,7 +16,7 @@ class EmpresaController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin/empresa.index');
     }
 
     /**
@@ -36,7 +38,12 @@ class EmpresaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $datosEmpresa=request()->except('_token');
+
+        empresa::insert($datosEmpresa);
+
+        //return response()->json($datosMarca);
+        return redirect('categoria');
     }
 
     /**
@@ -58,7 +65,9 @@ class EmpresaController extends Controller
      */
     public function edit(empresa $empresa)
     {
-        //
+        $empresa = empresa::findOrFail(1);
+
+        return view('admin/empresa.edit', compact('empresa'));
     }
 
     /**
@@ -70,7 +79,12 @@ class EmpresaController extends Controller
      */
     public function update(Request $request, empresa $empresa)
     {
-        //
+        $datosEmpresa=request()->except(['_token','_method']);
+        empresa::where('id','=', 1)->update($datosEmpresa);
+        $empresa=empresa::findOrFail(1);
+
+        //return view('admin/marca.edit', compact('marca'));
+        return redirect('categoria');
     }
 
     /**

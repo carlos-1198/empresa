@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Pear') }}</title>
+    <title>@yield('pageTitle')Pear INC.</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -38,18 +38,24 @@
                         <a class="btn btn-success" href="{{ route('login') }}">{{ __('Login') }}</a>
                     </li>
                     @if (Route::has('register'))
-                    <li class="nav-item">
+                    <li id="register-button" class="nav-item d-none">
                         <a class="btn btn-outline-secondary" href="{{ route('register') }}">{{ __('Register') }}</a>
                     </li>
                     @endif
                     @else
+                    <li>
+                      <a class="btn btn-outline-success" href="{{ route('producto.index') }}">{{ __('Administrar') }}</a>
+                    </li>
                     <li class="nav-item dropdown">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                             {{ Auth::user()->name }}
                         </a>
 
-                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                        <div id="contenedor-desplegable" class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">  
+                            <a id="dropdown-empresa" class="dropdown-item" href="{{url('empresa/1/edit')}}">
+                                {{ __('Pear') }}
+                            </a>
+                            <a id="dropdown-logout" class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                   document.getElementById('logout-form').submit();">
                                 {{ __('Logout') }}
                             </a>
@@ -93,8 +99,6 @@
             </div>
         </section>
         <!--/BANNER-->
-
-
         <main class="pt-4 pb-4">
             @yield('content')
         </main>
@@ -144,7 +148,7 @@
             <div class="col-6">
               <p>{{$listado->categoria}}</p>
               <p>{{$listado->descripcioncorta}}</p>
-              <a class="offset-8" href="">más</a>
+              <div><p>{{$listado->valor}}</p></div>
             </div>
           </div>
           <div class="modal-footer">
@@ -194,41 +198,6 @@
     </div>
     <!--/MODALBTNSIGUENOS-->
 
-    <!--LOGINMODAL-->
-    <div id="modal-btn-log" class="modal" tabindex="-1">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title">Log</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-             <form>
-              <div class="form-group">
-                <label for="usuario-log">Usuario</label>
-                <input type="text" class="form-control" id="usuario-log">
-              </div>
-              <div class="form-group">
-                <label for="password-log">Password</label>
-                <input type="password" class="form-control" id="password-log" aria-describedby="consejo-contra">
-                <small id="consejo-contra" class="form-text text-muted">Asegurate de verificar las mayusculas.</small>
-              </div>
-              <div class="form-group form-check">
-                <input type="checkbox" class="form-check-input" id="recuerdame-log">
-                <label class="form-check-label" for="recuerdame-log">Recuerdame</label>
-              </div>
-              <div class="form-group text-center">
-                <button type="submit" class="btn btn-primary">Registrarse</button>
-                <button type="submit" class="btn btn-success">Ingresar</button>
-              </div>
-            </form>         
-          </div>
-        </div>
-      </div>
-    </div>   
-    <!--/LOGINMODAL-->
 </body>
 
 </html>
