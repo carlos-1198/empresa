@@ -32,7 +32,8 @@
             </div>
             <div id="aside" class="col-md-4 pt-4 pb-4">
               <div class="text-center pt-4">
-                
+                <script src="https://apps.elfsight.com/p/platform.js" defer></script>
+                <div class="elfsight-app-01bbacc5-21a2-4662-8cf5-27cee50c61de"></div>
               </div>
               <div class="text-center">
                 <a href="https://www.instagram.com/xiaomi.colombia/" target="_blank" class="btn btn-success">Siguenos</a>
