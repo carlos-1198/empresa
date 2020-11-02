@@ -18,10 +18,6 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-/* Route::get('/', function () {
-    return view('welcome');
-}); */
-
 
 Route::get('/', [App\Http\Controllers\ProductoController::class, 'list'])->name('welcome');
 Route::get('/listado', [App\Http\Controllers\ProductoController::class, 'listAll'])->name('listado');
@@ -30,6 +26,7 @@ Route::resource('marca', MarcaController::class)->middleware('auth');
 Route::resource('categoria', CategoriaController::class)->middleware('auth');
 Route::resource('producto', ProductoController::class)->middleware('auth');
 Route::resource('empresa', EmpresaController::class)->middleware('auth');
+
 
 Auth::routes();
 

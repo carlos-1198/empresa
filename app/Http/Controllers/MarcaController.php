@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\marca;
+use App\Models\empresa;
 use Illuminate\Http\Request;
 
 class MarcaController extends Controller
@@ -17,8 +18,8 @@ class MarcaController extends Controller
         //
 
         $datos['marcas']=marca::paginate(20);
-
-        return view('admin/marca.index', $datos);
+        $empresa = Empresa::findOrFail(1);
+        return view('admin/marca.index', $datos, compact('empresa'));
     }
 
     /**
@@ -28,8 +29,8 @@ class MarcaController extends Controller
      */
     public function create()
     {
-        //
-        return view('admin/marca.create');
+        $empresa = Empresa::findOrFail(1);
+        return view('admin/marca.create', compact('empresa'));
     }
 
     /**
@@ -71,8 +72,8 @@ class MarcaController extends Controller
     {
         //
         $marca=marca::findOrFail($id);
-
-        return view('admin/marca.edit', compact('marca'));
+        $empresa = Empresa::findOrFail(1);
+        return view('admin/marca.edit', compact('marca','empresa'));
 
     
     }

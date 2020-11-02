@@ -19,7 +19,6 @@ class ProductoController extends Controller
      */
     public function index()
     {
-
         $productos = producto::select('p.id', 'p.referencia', 'p.nombre', 'p.descripcioncorta', 'p.detalle', 'p.valor', 'p.palabrasclave', 'p.estado', 'p.foto', 'c.nombre as categoria', 'm.nombre as marca')
             ->from('productos as p')
             ->join('categorias as c', function ($join) {
@@ -29,8 +28,8 @@ class ProductoController extends Controller
                 $join->on('m.id', '=', 'p.id_marca');
             })
             ->paginate(20);
-
-        return view('admin/producto.index', compact('productos'));
+        $empresa = Empresa::findOrFail(1);
+        return view('admin/producto.index', compact('productos','empresa'));
     }
 
     /**
@@ -46,8 +45,8 @@ class ProductoController extends Controller
             ->where('estado', '=', 0)
             ->get();
         $marcas = DB::table('marcas')->select('id', 'nombre')->get();
-
-        return view('admin/producto.create', compact('categorias', 'marcas'));
+        $empresa = Empresa::findOrFail(1);
+        return view('admin/producto.create', compact('categorias', 'marcas','empresa'));
     }
 
     /**
@@ -95,9 +94,8 @@ class ProductoController extends Controller
         $categorias = DB::table('categorias')->select('id', 'nombre')->get();
         $marcas = DB::table('marcas')->select('id', 'nombre')->get();
 
-        //return response()->json($producto);
-
-        return view('admin/producto.edit', compact('producto', 'categorias', 'marcas'));
+        $empresa = Empresa::findOrFail(1);
+        return view('admin/producto.edit', compact('producto', 'categorias', 'marcas','empresa'));
     }
 
     /**
@@ -121,7 +119,7 @@ class ProductoController extends Controller
         producto::where('id', '=', $id)->update($datosProducto);
         $producto = producto::findOrFail($id);
 
-        //return view('admin/marca.edit', compact('marca'));
+       
         return redirect('producto');
     }
 
@@ -145,7 +143,7 @@ class ProductoController extends Controller
     }
 
     public function list()
-    {
+    {   
         $listados = producto::select('p.id', 'p.nombre', 'p.descripcioncorta', 'p.detalle', 'p.valor', 'p.palabrasclave', 'p.foto', 'c.nombre as categoria', 'm.nombre as marca')
             ->from('productos as p')
             ->join('categorias as c', function ($join) {
@@ -160,7 +158,8 @@ class ProductoController extends Controller
             ->limit(8)
             ->get();
 
-        return view('welcome', compact('listados'));
+        $empresa = Empresa::findOrFail(1);
+        return view('welcome', compact('listados','empresa'));
     }
 
     public function listAll()
@@ -181,7 +180,8 @@ class ProductoController extends Controller
             ->where('estado', '=', 0)
             ->get();
 
-        return view('listado', compact('listados', 'categorias'));
+        $empresa = Empresa::findOrFail(1);
+        return view('listado', compact('listados', 'categorias','empresa'));
     }
 
     public function filter($id)

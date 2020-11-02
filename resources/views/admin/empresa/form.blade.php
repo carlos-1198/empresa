@@ -1,35 +1,35 @@
 <div class="form-group row">
-    <label for="email-gestion" class="col-sm-2 col-form-label">Email</label>
+    <label for="emailcontacto" class="col-sm-2 col-form-label">Email</label>
     <div class="col-sm-10">
-        <input type="text"  class="form-control" id="email-gestion" name="email-gestion" aria-describedby="email" required value="{{isset($empresa->emailcontacto)?$empresa->emailcontacto:''}}">
+        <input type="text"  class="form-control" id="emailcontacto" name="emailcontacto" aria-describedby="email" required value="{{isset($empresa->emailcontacto)?$empresa->emailcontacto:''}}">
     </div>
 </div>
 
 <div class="form-group row">
-    <label for="nombre-gestion" class="col-sm-2 col-form-label">Nombre</label>
+    <label for="nombre" class="col-sm-2 col-form-label">Nombre</label>
     <div class="col-sm-10">
-        <input type="text"  class="form-control" id="nombre-gestion" name="nombre-gestion" aria-describedby="nombre" required value="{{isset($empresa->nombre)?$empresa->nombre:''}}">
+        <input type="text"  class="form-control" id="nombre" name="nombre" aria-describedby="nombre" required value="{{isset($empresa->nombre)?$empresa->nombre:''}}">
     </div>
 </div>
 
 <div class="form-group row">
-    <label for="direccion-gestion" class="col-sm-2 col-form-label">Nombre</label>
+    <label for="direccion" class="col-sm-2 col-form-label">Direccion</label>
     <div class="col-sm-10">
-        <input type="text"  class="form-control" id="direccion-gestion" name="direccion-gestion" aria-describedby="direccion" required value="{{isset($empresa->direccion)?$empresa->direccion:''}}">
+        <input type="text"  class="form-control" id="direccion" name="direccion" aria-describedby="direccion" required value="{{isset($empresa->direccion)?$empresa->direccion:''}}">
     </div>
 </div>
 
 <div class="form-group row">
-    <label for="telefono-gestion" class="col-sm-2 col-form-label">Telefono</label>
+    <label for="telefonocontacto" class="col-sm-2 col-form-label">Telefono</label>
     <div class="col-sm-10">
-        <input type="text"  class="form-control" id="telefono-gestion" name="telefono-gestion" aria-describedby="telefono" required value="{{isset($empresa->telefonocontacto)?$empresa->telefonocontacto:''}}">
+        <input type="text"  class="form-control" id="telefonocontacto" name="telefonocontacto" aria-describedby="telefono" required value="{{isset($empresa->telefonocontacto)?$empresa->telefonocontacto:''}}">
     </div>
 </div>
 
 <div class="form group row">
-    <label for="presentacion-gestion" class="col-sm-2 col-form-label">Quienes somos</label>
+    <label for="quienessomos" class="col-sm-2 col-form-label">Quienes somos</label>
     <div class="col-sm-10">
-        <textarea type="text"  class="form-control" id="presentacion-gestion" name="presentacion-gestion" rows="5" required >{{isset($empresa->quienessomos)?$empresa->quienessomos:''}}</textarea>
+        <textarea type="text"  class="form-control" id="quienessomos" name="quienessomos" rows="5" required >{{isset($empresa->quienessomos)?$empresa->quienessomos:''}}</textarea>
     </div>
 </div>
 

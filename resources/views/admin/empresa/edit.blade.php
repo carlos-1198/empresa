@@ -8,9 +8,9 @@
                 <h2 class="col-10 mt-2 pb-2">Editar informacion Empresa</h2>
             </div>
             <div class="col-12 ">
-                <form action="{{ url('/') }}" method="HEAD">
+                <form action="{{ url('/empresa/'.$empresa->id) }}" method="post" enctype="multipart/form-data">
                     {{csrf_field()}}
-                    @method('HEAD')
+                    @method('PATCH')
                     @include('admin.empresa.form',['modo'=>'editar'])
                 </form>
             </div>

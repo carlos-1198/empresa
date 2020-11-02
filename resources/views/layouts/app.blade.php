@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>@yield('pageTitle')Pear INC.</title>
+    <title>{{$empresa->nombre}}</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -29,7 +29,7 @@
             <a class="navbar-brand" href="{{ url('/') }}">
             <img src="{{asset('storage/pear.png')}}" class="d-inline-block align-top" alt="" loading="lazy">
             </a>
-            <h1>Pear</h1>
+            <h1>{{$empresa->nombre}}</h1>
                 <!-- Right Side Of Navbar -->
                 <ul class="nav justify-content-center ml-auto">
                     <!-- Authentication Links -->
@@ -89,7 +89,7 @@
                                 <div class="col-md-6 offset-md-6 text-center text-md-right">
                                     <h2>Ven y Conocenos</h2>
                                     <p class="d-block">
-                                        calle 15 #3-69
+                                        {{$empresa->direccion}}
                                     </p>
                                 </div>
                             </div>
@@ -110,14 +110,14 @@
                 <div class="row">
                     <div class="col-6 col-md-8">
                         <h3>Información de contacto</h3>
-                        <p>Email: pear@support.com</p>
-                        <p>Télefono de contacto: +57 3188069485</p>
+                        <p>Email: {{$empresa->emailcontacto}}</p>
+                        <p>Télefono de contacto: {{$empresa->telefonocontacto}}</p>
                     </div>
                     <div class="col-6 col-md-4 text-center pt-3">
                     <div class="d-inline">   
-                        <a href="https://www.facebook.com/XiaomiColombia/" target="_blank"><img class="img-face" src="{{asset('storage/facebook-logo.png')}}" alt="facebook"></a>
-                        <a href="https://twitter.com/XiaomiColombia?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor" target="_blank"><img class="img-twit" src="{{asset('storage/twitter-logo.png')}}" alt="twitter"></a>
-                        <a href="https://www.instagram.com/xiaomi.colombia/" target="_blank"><img class="img-insta" src="{{asset('storage/instagram-logo.png')}}" alt="instagram"></a>      
+                        <a href="{{$empresa->facebook}}" target="_blank"><img class="img-face" src="{{asset('storage/facebook-logo.png')}}" alt="facebook"></a>
+                        <a href="{{$empresa->twitter}}" target="_blank"><img class="img-twit" src="{{asset('storage/twitter-logo.png')}}" alt="twitter"></a>
+                        <a href="{{$empresa->instagram}}" target="_blank"><img class="img-insta" src="{{asset('storage/instagram-logo.png')}}" alt="instagram"></a>      
                     </div>
                     <div class="pt-2">
                         <a class="btn btn-success" data-toggle="modal" data-target="#modal-btn-siguenos">Contactanos</a>
@@ -129,7 +129,6 @@
     <!--/FOOTER-->
 
     <!--MODALIMGPRODUCTO-->
-
     @isset($listados)
     @foreach($listados as $listado)
     <div id="modalProducto{{$listado->id}}" class="modal" tabindex="-1">
